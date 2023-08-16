@@ -1,0 +1,309 @@
+package br.com.funcionario.view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Button;
+
+import org.apache.commons.lang3.StringUtils;
+
+import br.com.funcionario.model.Funcionario;
+import br.com.senai.dao.BaseDeDados;
+
+import javax.swing.ComboBoxEditor;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Cadastrar extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField tfNome;
+	private JTextField tfIdade;
+	private JTextField tfEmail;
+	private JTextField tfCPF;
+	private JTextField tfEndereco;
+	private JTextField tfTelefone;
+	private JTextField tfFuncionariosGeridos;
+	private JComboBox comboBoxTipo;
+	private JRadioButton rdbtnGeneroH;
+	private JRadioButton rdbtnGeneroM;
+	private boolean editando;
+
+	/**
+	 * Launch the application.
+	 */
+	static BaseDeDados bd;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+
+					try {
+						bd = new BaseDeDados();
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					Cadastrar frame = new Cadastrar();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Cadastrar() {
+		setTitle("Cadastrar Funcionarios");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				Principal.main(null);
+
+				setVisible(false);
+
+			}
+		});
+		btnVoltar.setBounds(10, 227, 89, 23);
+		contentPane.add(btnVoltar);
+
+		tfNome = new JTextField();
+		tfNome.setBounds(65, 11, 86, 20);
+		contentPane.add(tfNome);
+		tfNome.setColumns(10);
+
+		tfIdade = new JTextField();
+		tfIdade.setBounds(65, 42, 86, 20);
+		contentPane.add(tfIdade);
+		tfIdade.setColumns(10);
+
+		tfEmail = new JTextField();
+		tfEmail.setBounds(65, 73, 86, 20);
+		contentPane.add(tfEmail);
+		tfEmail.setColumns(10);
+
+		rdbtnGeneroH = new JRadioButton("H");
+		rdbtnGeneroH.setBounds(64, 100, 33, 23);
+		contentPane.add(rdbtnGeneroH);
+
+		rdbtnGeneroM = new JRadioButton("M");
+		rdbtnGeneroM.setBounds(99, 100, 46, 23);
+		contentPane.add(rdbtnGeneroM);
+
+		tfCPF = new JTextField();
+		tfCPF.setBounds(65, 130, 86, 20);
+		contentPane.add(tfCPF);
+		tfCPF.setColumns(10);
+
+		tfEndereco = new JTextField();
+		tfEndereco.setBounds(297, 11, 86, 20);
+		contentPane.add(tfEndereco);
+		tfEndereco.setColumns(10);
+
+		tfTelefone = new JTextField();
+		tfTelefone.setBounds(297, 42, 86, 20);
+		contentPane.add(tfTelefone);
+		tfTelefone.setColumns(10);
+
+		comboBoxTipo = new JComboBox();
+
+		comboBoxTipo.setModel(new DefaultComboBoxModel(new String[] { "Normal", "Gestor" }));
+
+		comboBoxTipo.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				tfFuncionariosGeridos.setEnabled(comboBoxTipo.getSelectedIndex() == 1);
+
+			}
+		});
+
+		comboBoxTipo.setBounds(297, 72, 86, 22);
+		contentPane.add(comboBoxTipo);
+
+		tfFuncionariosGeridos = new JTextField();
+		tfFuncionariosGeridos.setEnabled(false);
+		tfFuncionariosGeridos.setBounds(297, 130, 86, 20);
+		contentPane.add(tfFuncionariosGeridos);
+		tfFuncionariosGeridos.setColumns(10);
+
+		JLabel lblNome = new JLabel("Nome: ");
+		lblNome.setBounds(20, 14, 46, 14);
+		contentPane.add(lblNome);
+
+		JLabel lblIdadei = new JLabel("Idade: ");
+		lblIdadei.setBounds(20, 45, 38, 14);
+		contentPane.add(lblIdadei);
+
+		JLabel lblEmail = new JLabel("Email: ");
+		lblEmail.setBounds(22, 76, 44, 14);
+		contentPane.add(lblEmail);
+
+		JLabel lblCPF = new JLabel("CPF: ");
+		lblCPF.setBounds(25, 133, 33, 14);
+		contentPane.add(lblCPF);
+
+		JLabel lblEndereco = new JLabel("Endereço: ");
+		lblEndereco.setBounds(230, 14, 52, 14);
+		contentPane.add(lblEndereco);
+
+		JLabel lblTelefone = new JLabel("Telefone: ");
+		lblTelefone.setBounds(230, 45, 52, 14);
+		contentPane.add(lblTelefone);
+
+		JLabel lblTipo = new JLabel("Tipo: ");
+		lblTipo.setBounds(230, 76, 46, 14);
+		contentPane.add(lblTipo);
+
+		JLabel lblNumeroFuncionarios = new JLabel("N° Funcionários: ");
+		lblNumeroFuncionarios.setBounds(201, 133, 98, 14);
+		contentPane.add(lblNumeroFuncionarios);
+
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				Funcionario funcionario = new Funcionario();
+
+				funcionario.setNome(tfNome.getText());
+				funcionario.setIdade(Integer.parseInt(tfIdade.getText()));
+				funcionario.setEmail(tfEmail.getText());
+
+				if (rdbtnGeneroH.isSelected()) {
+
+					funcionario.setGenero('H');
+
+				} else {
+
+					funcionario.setGenero('M');
+
+				}
+
+				String cpf = tfCPF.getText();
+
+				if (StringUtils.isNumeric(cpf) == true) {
+
+					funcionario.setCpf(cpf);
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "INSIRA APENAS DADOS VALIDOS NO CAMPO: CPF");
+
+				}
+
+				funcionario.setEndereco(tfEndereco.getText());
+
+				funcionario.setTelefone(tfTelefone.getText());
+
+				if (comboBoxTipo.getSelectedIndex() == 0) {
+
+					funcionario.setTipo('N');
+					funcionario.setFuncionarios_geridos(0);
+
+				} else {
+
+					funcionario.setTipo('G');
+					funcionario.setFuncionarios_geridos(Integer.parseInt(tfFuncionariosGeridos.getText()));
+
+				}
+
+				if (editando) {
+
+					bd.alterarFuncionario(funcionario);
+
+				} else {
+
+					bd.cadastraFuncionario(funcionario);
+				}
+				tfCPF.setText("");
+				tfEmail.setText("");
+				tfEndereco.setText("");
+				tfFuncionariosGeridos.setText("");
+				tfIdade.setText("");
+				tfNome.setText("");
+				tfTelefone.setText("");
+
+				comboBoxTipo.setSelectedIndex(0);
+
+			}
+		});
+		btnSalvar.setBounds(335, 227, 89, 23);
+		contentPane.add(btnSalvar);
+
+		JLabel lblGenero = new JLabel("Genero: ");
+		lblGenero.setBounds(10, 104, 46, 14);
+		contentPane.add(lblGenero);
+	}
+
+	public Cadastrar(int id) {
+
+		this();
+
+		editando = true;
+
+		Funcionario alteraFuncionario = BaseDeDados.listaFuncionarioPorCod(id);
+
+		tfNome.setText(alteraFuncionario.getNome());
+		tfIdade.setText(String.valueOf(alteraFuncionario.getIdade()));
+		tfEmail.setText(alteraFuncionario.getEmail());
+
+		if (alteraFuncionario.getGenero() == 'H') {
+
+			rdbtnGeneroH.setSelected(true);
+
+		} else {
+
+			rdbtnGeneroM.setSelected(true);
+
+		}
+
+		tfCPF.setText(alteraFuncionario.getCpf());
+		tfEndereco.setText(alteraFuncionario.getEndereco());
+		tfTelefone.setText(alteraFuncionario.getTelefone());
+
+		if (alteraFuncionario.getTipo() == 'N') {
+
+			comboBoxTipo.setSelectedIndex(0);
+
+			tfFuncionariosGeridos.setEnabled(comboBoxTipo.getSelectedIndex() == 1);
+
+		} else {
+
+			comboBoxTipo.setSelectedIndex(1);
+
+			tfFuncionariosGeridos.setEnabled(comboBoxTipo.getSelectedIndex() == 1);
+
+			tfFuncionariosGeridos.setText(String.valueOf(alteraFuncionario.getFuncionarios_geridos()));
+
+		}
+
+	}
+}

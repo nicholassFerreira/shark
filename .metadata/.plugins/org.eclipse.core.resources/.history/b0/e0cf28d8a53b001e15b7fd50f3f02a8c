@@ -1,0 +1,23 @@
+package br.com.senai.shark.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class HelloController {
+
+	@GetMapping("/ola")
+	public String olaMundo(@RequestParam(defaultValue = "mundo") String nome, @RequestParam(defaultValue = "") Integer idade) {
+		return "Ola, " + nome + " - " + idade;
+	}
+
+	@GetMapping("/ola/{nome}")
+	public String olaNome(@PathVariable String nome) {
+
+		return "ola, " + nome;
+	}
+
+}
