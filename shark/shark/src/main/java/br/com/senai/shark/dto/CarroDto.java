@@ -1,21 +1,41 @@
 package br.com.senai.shark.dto;
 
+import br.com.senai.shark.model.ModelCarro;
 
 public class CarroDto {
 
+	private int id;
 	private String marca;
 	private String modelo;
 	private int ano;
 
-	public CarroDto(String marca, String modelo, int ano) {
+	public CarroDto(String marca, String modelo, int ano, int id) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
 		this.ano = ano;
+		this.id = id;
 	}
 
 	public CarroDto() {
 		super();
+	}
+	
+	public CarroDto(ModelCarro carro) {
+		
+		this.id = carro.getId();
+		this.marca = carro.getMarca();
+		this.modelo = carro.getModelo();
+		this.ano = carro.getAno();
+		
+	}
+	
+	public CarroDto(int id, String marca, String modelo, int ano) {
+		super();
+		this.id = id;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.ano = ano;
 	}
 
 	public String getMarca() {
@@ -42,4 +62,17 @@ public class CarroDto {
 		this.ano = ano;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+
+	
 }

@@ -1,0 +1,26 @@
+package br.com.senai.shark.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.senai.shark.dto.ClienteDto;
+import br.com.senai.shark.model.ModelContato;
+import br.com.senai.shark.repository.ContatoRepository;
+
+@Service
+public class ContatoService {
+
+	@Autowired
+	private ContatoRepository contatoRepository;
+	
+	public ModelContato salvarContato (ClienteDto clienteDto) {
+		
+		
+		{
+	}
+		
+		
+		
+	}
+
+}

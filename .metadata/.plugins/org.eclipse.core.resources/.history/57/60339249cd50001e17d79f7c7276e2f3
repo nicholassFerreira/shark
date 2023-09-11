@@ -1,0 +1,10 @@
+create table (
+
+	id bigint NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	titulo VARCHAR(1000) NOT NULL,
+	cpf VARCHAR(20) NOT NULL,
+	email VARCHAR(50) NOT NULL, 
+	endereco VARCHAR(75) NOT NULL, 
+	dtNascimento VARCHAR(20)
+
+)

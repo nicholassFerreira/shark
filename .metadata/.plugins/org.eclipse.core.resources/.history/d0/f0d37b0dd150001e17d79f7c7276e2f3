@@ -1,0 +1,15 @@
+package br.com.senai.shark.model;
+
+import java.time.LocalDate;
+
+public class Jogo {
+
+	private int id;
+	private String titulo;
+	private String desc;
+	private double preco;
+	private LocalDate dtLancamento;
+	private String nomeDesenvolvedora;
+	private String nomePublisher;
+	
+}

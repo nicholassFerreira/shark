@@ -2,6 +2,8 @@ package br.com.senai.shark.dto;
 
 import java.time.LocalDate;
 
+import br.com.senai.shark.model.ModelPessoa;
+
 public class PessoaDto {
 
 	private String nome;
@@ -27,6 +29,15 @@ public class PessoaDto {
 		
 	}
 
+	public PessoaDto (ModelPessoa p) {
+	
+		this.cpf=p.getCpf();
+		this.nome=p.getNome();
+		
+		
+		
+	}
+	
 
 	public String getNome() {
 		return nome;

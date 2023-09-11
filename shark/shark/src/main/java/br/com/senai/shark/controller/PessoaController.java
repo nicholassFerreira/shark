@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.senai.shark.dto.PessoaDto;
+import br.com.senai.shark.model.ModelPessoa;
 import br.com.senai.shark.service.PessoaService;
 
 @RestController
@@ -21,12 +22,19 @@ public class PessoaController {
 
 	private static List<PessoaDto> listaPessoaDtos = new ArrayList<>();
 
+	@Autowired
+	private PessoaService pessoaService;
+	
 	@PostMapping
-	public ResponseEntity<PessoaDto> criaPessoa(@RequestBody PessoaDto pessoa) {
+	public ResponseEntity<PessoaDto> criaPessoa(@RequestBody PessoaDto pessoaDto) {
 
-		listaPessoaDtos.add(pessoa);
+		ModelPessoa pessoa = new ModelPessoa(pessoaDto);
+		
+		pessoa = pessoaService.inserePessoa(pessoa);
 
-		return ResponseEntity.ok(pessoa);
+		listaPessoaDtos.add(pessoaDto);
+
+		return ResponseEntity.ok(new PessoaDto(pessoa));
 
 	}
 
@@ -41,8 +49,6 @@ public class PessoaController {
 			return ResponseEntity.ok(pessoaRetornoStream);
 
 		}
-
-		
 
 		return ResponseEntity.ok(listaPessoaDtos);
 

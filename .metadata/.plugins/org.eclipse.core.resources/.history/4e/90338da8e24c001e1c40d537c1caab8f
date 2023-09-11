@@ -1,0 +1,24 @@
+package br.com.senai.shark.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.senai.shark.dto.CarroDto;
+import br.com.senai.shark.model.Carro;
+import br.com.senai.shark.repository.CarroRepository;
+
+@Service
+
+public class CarroService1 {
+
+	@Autowired
+	private CarroRepository carroRepository;
+	
+	public Carro inserirCarro(CarroDto carroDto) {
+		
+		Carro carro = new Carro(carroDto);
+		return carroRepository.save(carro);
+		
+	}
+	
+}
