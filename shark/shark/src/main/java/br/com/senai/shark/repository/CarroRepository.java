@@ -2,10 +2,10 @@ package br.com.senai.shark.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.senai.shark.model.ModelCarro;
+import br.com.senai.shark.model.Carro;
 
 
-public interface CarroRepository extends JpaRepository<ModelCarro, Integer>{
+public interface CarroRepository extends JpaRepository<Carro, Integer>{
 
 	
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.senai.shark.model.ModelPessoa;
+import br.com.senai.shark.model.Pessoa;
 import br.com.senai.shark.repository.PessoaRepository;
 
 @Service
@@ -14,18 +14,18 @@ public class PessoaService {
 	@Autowired
 	private PessoaRepository pessoaRepository;
 
-	public ModelPessoa inserePessoa(ModelPessoa p) {
+	public Pessoa inserePessoa(Pessoa p) {
 		return pessoaRepository.save(p);
 
 	}
 
-	public List<ModelPessoa> listarPessoas() {
+	public List<Pessoa> listarPessoas() {
 
 		return pessoaRepository.findAll();
 
 	}
 
-	public void deletePessoaBy(ModelPessoa p) {
+	public void deletePessoaBy(Pessoa p) {
 
 		pessoaRepository.deleteById(p.getId());
 

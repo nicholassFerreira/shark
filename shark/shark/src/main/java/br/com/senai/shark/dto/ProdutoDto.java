@@ -2,13 +2,13 @@ package br.com.senai.shark.dto;
 
 import java.time.LocalDate;
 
-import br.com.senai.shark.model.ModelProduto;
+import br.com.senai.shark.model.Produto;
 
 public class ProdutoDto {
 
 	private int id;
 	private String titulo;
-	private String desc;
+	private String descricao;
 	private double preco;
 	private LocalDate prazoEntrega;
 
@@ -16,14 +16,14 @@ public class ProdutoDto {
 		super();
 		this.id = id;
 		this.titulo = titulo;
-		this.desc = desc;
+		this.descricao = desc;
 		this.preco = preco;
 		this.prazoEntrega = prazoEntrega;
 	}
 
-	public ProdutoDto(ModelProduto produto) {
+	public ProdutoDto(Produto produto) {
 
-		this.desc = produto.getDesc();
+		this.descricao = produto.getDescricao();
 		this.id = produto.getId();
 		this.prazoEntrega = produto.getPrazoEntrega();
 		this.preco = produto.getPreco();
@@ -50,12 +50,12 @@ public class ProdutoDto {
 		this.titulo = titulo;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String desc) {
+		this.descricao = desc;
 	}
 
 	public double getPreco() {

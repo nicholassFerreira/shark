@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.senai.shark.dto.PessoaDto;
-import br.com.senai.shark.model.ModelPessoa;
+import br.com.senai.shark.model.Pessoa;
 import br.com.senai.shark.service.PessoaService;
 
 @RestController
@@ -28,7 +28,7 @@ public class PessoaController {
 	@PostMapping
 	public ResponseEntity<PessoaDto> criaPessoa(@RequestBody PessoaDto pessoaDto) {
 
-		ModelPessoa pessoa = new ModelPessoa(pessoaDto);
+		Pessoa pessoa = new Pessoa(pessoaDto);
 		
 		pessoa = pessoaService.inserePessoa(pessoa);
 

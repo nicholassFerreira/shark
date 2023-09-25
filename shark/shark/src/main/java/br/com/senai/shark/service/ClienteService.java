@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.senai.shark.dto.ClienteDto;
-import br.com.senai.shark.model.ModelCliente;
-import br.com.senai.shark.model.ModelContato;
+import br.com.senai.shark.model.Cliente;
+import br.com.senai.shark.model.Contato;
 import br.com.senai.shark.repository.ClienteRepository;
 
 @Service
@@ -17,15 +17,15 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	public ModelCliente salvarCliente(ClienteDto clienteDto) {
+	public Cliente salvarCliente(ClienteDto clienteDto) {
 
-		ModelCliente cliente = new ModelCliente(clienteDto);
+		Cliente cliente = new Cliente(clienteDto);
 
 		return clienteRepository.save(cliente);
 
 	}
 
-	public List<ModelCliente> listarTodos() {
+	public List<Cliente> listarTodos() {
 
 		return clienteRepository.findAll();
 

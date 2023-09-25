@@ -3,9 +3,17 @@ package br.com.senai.shark.model;
 import java.time.LocalDate;
 
 import br.com.senai.shark.dto.JogoDto;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+@Entity
+public class Jogo {
 
-public class ModelJogo {
-
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private String desc;
@@ -14,7 +22,7 @@ public class ModelJogo {
 	private String nomeDesenvolvedora;
 	private String nomePublisher;
 
-	public ModelJogo(JogoDto jogoDto) {
+	public Jogo(JogoDto jogoDto) {
 
 		this.desc = jogoDto.getDesc();
 		this.dtLancamento = jogoDto.getDtLancamento();
@@ -26,7 +34,7 @@ public class ModelJogo {
 
 	}
 
-	public ModelJogo(int id, String titulo, String desc, double preco, LocalDate dtLancamento,
+	public Jogo(int id, String titulo, String desc, double preco, LocalDate dtLancamento,
 			String nomeDesenvolvedora, String nomePublisher) {
 		super();
 		this.id = id;
@@ -38,7 +46,7 @@ public class ModelJogo {
 		this.nomePublisher = nomePublisher;
 	}
 
-	public ModelJogo() {
+	public Jogo() {
 		super();
 	}
 

@@ -1,6 +1,6 @@
 package br.com.senai.shark.dto;
 
-import br.com.senai.shark.model.ModelContato;
+import br.com.senai.shark.model.Contato;
 
 public class ContatoDto {
 
@@ -17,7 +17,7 @@ public class ContatoDto {
 		this.tipo = tipo;
 	}
 
-	public ContatoDto(ModelContato contato) {
+	public ContatoDto(Contato contato) {
 
 		this.id = contato.getId();
 		this.nome = contato.getNome();

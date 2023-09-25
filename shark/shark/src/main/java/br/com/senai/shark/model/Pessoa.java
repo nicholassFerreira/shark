@@ -7,14 +7,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class ModelPessoa {
+public class Pessoa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String cpf;
-	public ModelPessoa(Integer id, String nome, String cpf) {
+	public Pessoa(Integer id, String nome, String cpf) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -38,11 +38,11 @@ public class ModelPessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public ModelPessoa() {
+	public Pessoa() {
 		super();
 	}
 
-	public ModelPessoa(PessoaDto dto) {
+	public Pessoa(PessoaDto dto) {
 		
 		this.nome=dto.getNome();
 		this.cpf=dto.getCpf();

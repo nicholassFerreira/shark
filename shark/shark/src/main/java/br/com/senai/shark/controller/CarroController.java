@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.w3c.dom.ls.LSInput;
 
 import br.com.senai.shark.dto.CarroDto;
-import br.com.senai.shark.model.ModelCarro;
+import br.com.senai.shark.model.Carro;
 import br.com.senai.shark.service.CarroService;
 import br.com.senai.shark.service.CarroService1;
 
@@ -33,14 +33,14 @@ public class CarroController {
 
 	@PostMapping
 	public ResponseEntity<CarroDto> cadastrarCarro(@RequestBody CarroDto carrodto) {
-		ModelCarro carro = carroService.salvarCarro(carrodto);
+		Carro carro = carroService.salvarCarro(carrodto);
 		return ResponseEntity.ok(new CarroDto(carro));
 
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<CarroDto>> listarCarros(){
-		List<ModelCarro> carros = carroService.listarCarros();
+		List<Carro> carros = carroService.listarCarros();
 		List<CarroDto> carrosDto = carros.stream().map(CarroDto::new).toList();
 		
 		return ResponseEntity.ok(carrosDto);
@@ -58,7 +58,7 @@ public class CarroController {
 	
 	@PutMapping
 	public ResponseEntity<CarroDto> atualizacarro(@RequestBody CarroDto carroDto) {
-		ModelCarro carroAtualizado = carroService.salvarCarro(carroDto);
+		Carro carroAtualizado = carroService.salvarCarro(carroDto);
 		
 		return ResponseEntity.ok(new CarroDto(carroAtualizado));
 	}

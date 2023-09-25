@@ -1,6 +1,6 @@
 package br.com.senai.shark.dto;
 
-import br.com.senai.shark.model.ModelCliente;
+import br.com.senai.shark.model.Cliente;
 
 public class ClienteDto {
 
@@ -21,7 +21,7 @@ public class ClienteDto {
 		this.cpf = cpf;
 	}
 
-	public ClienteDto (ModelCliente cliente) {
+	public ClienteDto (Cliente cliente) {
 		
 			this.id = cliente.getId();
 			this.nome = cliente.getNome();

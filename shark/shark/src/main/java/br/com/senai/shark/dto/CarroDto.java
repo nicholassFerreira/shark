@@ -1,6 +1,6 @@
 package br.com.senai.shark.dto;
 
-import br.com.senai.shark.model.ModelCarro;
+import br.com.senai.shark.model.Carro;
 
 public class CarroDto {
 
@@ -21,7 +21,7 @@ public class CarroDto {
 		super();
 	}
 	
-	public CarroDto(ModelCarro carro) {
+	public CarroDto(Carro carro) {
 		
 		this.id = carro.getId();
 		this.marca = carro.getMarca();

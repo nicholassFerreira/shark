@@ -3,34 +3,43 @@ package br.com.senai.shark.model;
 import java.time.LocalDate;
 
 import br.com.senai.shark.dto.ProdutoDto;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-public class ModelProduto {
+@Entity
+public class Produto {
 
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
-	private String desc;
+	private String descricao;
 	private Double preco;
 	private LocalDate prazoEntrega;
 
-	public ModelProduto(int id, String titulo, String desc, double preco, LocalDate prazoEntrega) {
+	public Produto(int id, String titulo, String desc, double preco, LocalDate prazoEntrega) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
-		this.desc = desc;
+		this.descricao = desc;
 		this.preco = preco;
 		this.prazoEntrega = prazoEntrega;
 	}
 
-	public ModelProduto(ProdutoDto dto) {
+	public Produto(ProdutoDto dto) {
 
-		this.desc = dto.getDesc();
+		this.descricao = dto.getDescricao();
 		this.id = dto.getId();
 		this.prazoEntrega = dto.getPrazoEntrega();
 		this.preco = dto.getPreco();
 		this.titulo = dto.getTitulo();
 	}
 
-	public ModelProduto() {
+	public Produto() {
 		super();
 	}
 
@@ -50,12 +59,12 @@ public class ModelProduto {
 		this.titulo = titulo;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String desc) {
+		this.descricao = desc;
 	}
 
 	public Double getPreco() {

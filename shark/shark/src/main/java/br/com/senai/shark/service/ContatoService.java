@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.senai.shark.dto.ClienteDto;
 import br.com.senai.shark.dto.ContatoDto;
-import br.com.senai.shark.model.ModelContato;
+import br.com.senai.shark.model.Contato;
 import br.com.senai.shark.repository.ClienteRepository;
 import br.com.senai.shark.repository.ContatoRepository;
 
@@ -17,15 +17,15 @@ public class ContatoService {
 	@Autowired
 	private ContatoRepository contatoRepository;
 
-	public ModelContato salvarContato(ContatoDto contato) {
+	public Contato salvarContato(ContatoDto contato) {
 
-		ModelContato novoContato = new ModelContato(contato);
+		Contato novoContato = new Contato(contato);
 
 		return contatoRepository.save(novoContato);
 
 	}
 
-	public List<ModelContato> listarTodos() {
+	public List<Contato> listarTodos() {
 
 		return contatoRepository.findAll();
 

@@ -1,9 +1,15 @@
 package br.com.senai.shark.model;
 
 import br.com.senai.shark.dto.ClienteDto;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-public class ModelCliente {
-
+@Entity
+public class Cliente {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String endereco;
@@ -11,7 +17,7 @@ public class ModelCliente {
 	private String dtNascimento;
 	private String cpf;
 
-	public ModelCliente(int id, String nome, String endereco, String email, String dtNascimento, String cpf) {
+	public Cliente(int id, String nome, String endereco, String email, String dtNascimento, String cpf) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -21,7 +27,7 @@ public class ModelCliente {
 		this.cpf = cpf;
 	}
 
-	public ModelCliente(ClienteDto cliente) {
+	public Cliente(ClienteDto cliente) {
 
 		this.id = cliente.getId();
 		this.nome = cliente.getNome();
@@ -32,7 +38,7 @@ public class ModelCliente {
 
 	}
 
-	public ModelCliente() {
+	public Cliente() {
 		super();
 	}
 

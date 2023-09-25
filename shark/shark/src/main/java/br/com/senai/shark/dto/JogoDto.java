@@ -2,7 +2,7 @@ package br.com.senai.shark.dto;
 
 import java.time.LocalDate;
 
-import br.com.senai.shark.model.ModelJogo;
+import br.com.senai.shark.model.Jogo;
 
 public class JogoDto {
 
@@ -14,7 +14,7 @@ public class JogoDto {
 	private String nomeDesenvolvedora;
 	private String nomePublisher;
 
-	public JogoDto(ModelJogo modelJogo) {
+	public JogoDto(Jogo modelJogo) {
 
 		this.id = modelJogo.getId();
 		this.titulo = modelJogo.getTitulo();

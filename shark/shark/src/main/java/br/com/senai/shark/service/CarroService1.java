@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.senai.shark.dto.CarroDto;
-import br.com.senai.shark.model.ModelCarro;
+import br.com.senai.shark.model.Carro;
 import br.com.senai.shark.repository.CarroRepository;
 
 @Service
@@ -16,14 +16,14 @@ public class CarroService1 {
 	@Autowired
 	private CarroRepository carroRepository;
 	
-	public ModelCarro inserirCarro(CarroDto carroDto) {
+	public Carro inserirCarro(CarroDto carroDto) {
 		
-		ModelCarro carro = new ModelCarro(carroDto);
+		Carro carro = new Carro(carroDto);
 		return carroRepository.save(carro);
 		
 	}
 	
-	public List<ModelCarro> listarCarros() {
+	public List<Carro> listarCarros() {
 		
 		return carroRepository.findAll();
 		

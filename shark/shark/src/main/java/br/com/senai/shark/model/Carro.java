@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class ModelCarro {
+public class Carro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +16,11 @@ public class ModelCarro {
 	private String modelo;
 	private Integer ano;
 
-	public ModelCarro() {
+	public Carro() {
 		super();
 	}
 	
-	public ModelCarro(CarroDto carroDto) {
+	public Carro(CarroDto carroDto) {
 
 		this.id= carroDto.getId();
 		this.marca = carroDto.getMarca();
@@ -29,7 +29,7 @@ public class ModelCarro {
 	}
 	
 
-	public ModelCarro(Integer id, String marca, String modelo, Integer ano) {
+	public Carro(Integer id, String marca, String modelo, Integer ano) {
 		super();
 		this.id = id;
 		this.marca = marca;
