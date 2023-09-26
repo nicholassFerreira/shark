@@ -31,6 +31,43 @@ public class CarroController {
 	@Autowired
 	private CarroService carroService;
 
+	@DeleteMapping("/marca/{marca}")
+	public ResponseEntity<Void> excluirPorMarca (@PathVariable String marca){
+		
+		carroService.excluirPorMarca(marca);
+		
+		return ResponseEntity.status(HttpStatus.OK).build();
+		
+	}
+	
+	@GetMapping("/anomenor")
+	public ResponseEntity<List<CarroDto>> listarPorAnoMenor (@RequestParam Integer ano) {
+		
+		List<Carro> carros = carroService.listarPorAnoMenor(ano);
+		List<CarroDto> carrosDto = carros.stream().map(CarroDto::new).toList();
+		return ResponseEntity.ok(carrosDto);                                                                                                                                                                       
+	}
+	
+	@GetMapping("/modeloano")
+	public ResponseEntity<List<CarroDto>> listarPorModeloEAno(@RequestParam String modelo, @RequestParam Integer ano) {
+		
+		List<Carro> carros = carroService.listarPorModeloEAno(modelo, ano);
+		List<CarroDto> carrosDto = carros.stream().map(CarroDto::new).toList();
+		return ResponseEntity.ok(carrosDto);
+ 
+		
+		
+	}
+	
+	@GetMapping("/marca")
+	public ResponseEntity<List<CarroDto>> listarPorMarca(@RequestParam String marca) {
+		
+		List<Carro> carros = carroService.listarPorMarca(marca);
+		List<CarroDto> carrosDto = carros.stream().map(CarroDto::new).toList();
+		return ResponseEntity.ok(carrosDto);
+
+	}
+	
 	@PostMapping
 	public ResponseEntity<CarroDto> cadastrarCarro(@RequestBody CarroDto carrodto) {
 		Carro carro = carroService.salvarCarro(carrodto);

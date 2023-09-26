@@ -1,0 +1,6 @@
+
+@PostMapping
+	public ResponseEntity<ClienteDto> cadastraCliente(@RequestBody ClienteDto clienteDto) {
+		Cliente cliente = clienteService.salvarCliente(clienteDto);
+		return ResponseEntity.ok(new ClienteDto(cliente));
+	}

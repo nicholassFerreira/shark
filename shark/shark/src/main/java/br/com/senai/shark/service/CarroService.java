@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.senai.shark.dto.CarroDto;
 import br.com.senai.shark.model.Carro;
 import br.com.senai.shark.repository.CarroRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class CarroService {
@@ -15,6 +16,19 @@ public class CarroService {
 	
 	@Autowired
 	private CarroRepository carroRepository;
+	
+	@Transactional
+	public void excluirPorMarca(String marca) {
+		
+		carroRepository.deleteByMarca(marca);
+		
+	}
+	
+	public List<Carro> listarPorAnoMenor(Integer ano){
+		
+		return carroRepository.findByAnoLessThan(ano);
+		
+	}
 	
 	public Carro salvarCarro(CarroDto carroDto) {
 		
@@ -35,8 +49,18 @@ public class CarroService {
 		
 	}
 	
+	public List<Carro> listarPorMarca(String marca) {
+		
+		return carroRepository.findByMarca(marca);
+		
+		
+	}
 	
-	
+	public List<Carro> listarPorModeloEAno(String modelo, Integer ano) {
+		
+		return carroRepository.findByModeloAndAno(modelo, ano);
+		
+	}
 
 	public List<CarroDto> findCarroBy(String filtro, int indiceFiltro, List<CarroDto> listaCarro) {
 
