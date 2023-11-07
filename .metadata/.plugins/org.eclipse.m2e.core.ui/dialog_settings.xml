@@ -74,6 +74,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\nicholas_moura\programming bitch\modulo_avaliacao"/>
+			<item value="C:\Users\nicholas_moura\Desktop\eureka-server"/>
+			<item value="C:\Users\nicholas_moura\Desktop\microsservicos"/>
+			<item value="C:\Users\nicholas_moura\Desktop\fakenatty"/>
 			<item value="C:\Users\nicholas_moura\programming bitch\shark"/>
 		</list>
 		<list key="projectNameTemplate">

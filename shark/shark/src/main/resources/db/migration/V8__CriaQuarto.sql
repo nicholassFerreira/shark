@@ -3,9 +3,9 @@ create table paciente (
 
 id int primary key auto_increment,
 cpf varchar(20),
-nome varchar(20),
+nome varchar(20)
 
-)
+);
 
 create table quarto (
 

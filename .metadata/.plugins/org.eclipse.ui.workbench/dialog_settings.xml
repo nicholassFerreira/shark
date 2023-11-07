@@ -41,6 +41,7 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="C:\Users\nicholas_moura\Desktop\eureka-server-intelijei.zip"/>
 			<item value="C:\Users\nicholas_moura\Desktop\Nova pasta\sharkExport.zip"/>
 			<item value="sharkExport.zip"/>
 		</list>

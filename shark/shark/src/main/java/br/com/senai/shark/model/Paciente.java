@@ -16,7 +16,7 @@ public class Paciente {
 	private Integer id;
 	private String nome;
 	private String cpf;
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "quarto")
+	@OneToOne(mappedBy = "paciente")
 	private Quarto quarto;
 	
 	public Paciente (PacienteDto pacienteDto) {
